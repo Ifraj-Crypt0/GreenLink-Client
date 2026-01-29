@@ -1,14 +1,15 @@
 import React, { useContext } from 'react';
 import { Link, NavLink } from 'react-router';
 import AuthContext from '../CONTEXTS/AuthContext';
+import Swal from 'sweetalert2';
 
 const Navbar = () => {
     const { user, logOut } = useContext(AuthContext)
-    const navClass = ({ isActive }) => 
+    const navClass = ({ isActive }) =>
         isActive
             ? "text-orange-400 underline font-extrabold cursor-pointer md:mx-4"
             : "text-white hover:text-orange-300 hover:underline font-extrabold cursor-pointer md:mx-4";
-    
+
     const links = <div className='flex flex-col md:flex-row p-4 md:p-0 bg-green-700 md:bg-none'>
         <NavLink to="/" className={navClass}>Home</NavLink>
         <NavLink to="/explore-gardeners" className={navClass}>Explore Gardeners</NavLink>
@@ -19,7 +20,34 @@ const Navbar = () => {
     </div>
 
     const handleLogOut = () => {
-        logOut().then(res => console.log(res)).catch(err => console.log(err))
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You will be logged out!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, log me out!"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                logOut() 
+                    .then(() => {
+                        Swal.fire({
+                            title: "Logged Out!",
+                            text: "You have been successfully logged out.",
+                            icon: "success"
+                        });
+                    })
+                    .catch((err) => {
+                        Swal.fire({
+                            title: "Error!",
+                            text: "Logout failed. Try again.",
+                            icon: "error"
+                        });
+                        console.log(err);
+                    });
+            }
+        });
     }
     return (
         <div>

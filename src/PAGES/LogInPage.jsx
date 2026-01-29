@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import AuthContext from '../CONTEXTS/AuthContext';
 import Loading from '../COMPONENTS/Loading';
+import Swal from 'sweetalert2';
 
 
 const LogInPage = () => {
@@ -15,14 +16,24 @@ const LogInPage = () => {
         const form = e.target
         const email = form.email.value
         const password = form.password.value
-        emailSignIn(email,password).then((userCredential) => {
+        emailSignIn(email, password).then(() => {
             // Signed in 
-            const user = userCredential.user;
+         
+            Swal.fire({
+                title: "Login successful!",
+                icon: "success",
+                draggable: true
+            });
             // ...
         })
             .catch((error) => {
-                const errorCode = error.code;
                 const errorMessage = error.message;
+                Swal.fire({
+                    icon: "error",
+                    title: "Oops...",
+                    text: errorMessage,
+
+                });
             });
     }
     if (loading) return Loading
