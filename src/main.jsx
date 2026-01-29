@@ -7,6 +7,10 @@ import { createBrowserRouter } from "react-router";
 import { RouterProvider } from "react-router/dom";
 import Layout from './LAYOUT/Layout.jsx';
 import HomePage from './PAGES/HomePage.jsx';
+import BrowseTipsPage from './PAGES/BrowseTipsPage.jsx';
+import ExploreGardenersPage from './PAGES/ExploreGardenersPage.jsx';
+import MyTipsPage from './PAGES/MyTipsPage.jsx';
+import ShareAGardenTipPage from './PAGES/ShareAGardenTipPage.jsx';
 
 const router = createBrowserRouter([
   {
@@ -16,6 +20,19 @@ const router = createBrowserRouter([
       {
         index: true,
         Component: HomePage
+      }, {
+        path: "browse-tips",
+        Component: BrowseTipsPage
+      }, {
+        path: "explore-gardeners",
+        Component: ExploreGardenersPage
+      },
+      {
+        path: "my-tips",
+        Component: MyTipsPage
+      }, {
+        path: "share-tip",
+        Component: ShareAGardenTipPage
       }
     ]
   },

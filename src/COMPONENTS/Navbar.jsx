@@ -1,13 +1,14 @@
 import React from 'react';
+import { Link } from 'react-router';
 
 const Navbar = () => {
     const links = <>
-        <p className='text-white hover:text-orange-300 hover:underline font-extrabold cursor-pointer md:mx-4'>Home</p>
-        <p className='text-white hover:text-orange-300 hover:underline font-extrabold cursor-pointer md:mx-4'>Explore Gardeners</p>
-        <p className='text-white hover:text-orange-300 hover:underline font-extrabold cursor-pointer md:mx-4'>Browse Tips</p>
+        <Link to={"/"}><p className='text-white hover:text-orange-300 hover:underline font-extrabold cursor-pointer md:mx-4'>Home</p></Link>
+        <Link to={"/explore-gardeners"}><p className='text-white hover:text-orange-300 hover:underline font-extrabold cursor-pointer md:mx-4'>Explore Gardeners</p></Link>
+        <Link to={"/browse-tips"}><p className='text-white hover:text-orange-300 hover:underline font-extrabold cursor-pointer md:mx-4'>Browse Tips</p></Link>
         <p className='hidden md:mx-4 md:block text-white'>||</p>
-        <p className='text-white hover:text-orange-300 hover:underline font-extrabold cursor-pointer md:mx-4'>Share a Garden Tip (Private) </p>
-        <p className='text-white hover:text-orange-300 hover:underline font-extrabold cursor-pointer md:mx-4'> My Tips (Private) </p>
+        <Link to={"/share-tip"}><p className='text-white hover:text-orange-300 hover:underline font-extrabold cursor-pointer md:mx-4'>Share a Garden Tip (Private) </p></Link>
+        <Link to={"/my-tips"}> <p className='text-white hover:text-orange-300 hover:underline font-extrabold cursor-pointer md:mx-4'> My Tips (Private) </p></Link>
     </>
     return (
         <div>
