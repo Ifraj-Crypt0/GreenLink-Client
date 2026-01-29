@@ -1,18 +1,26 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router';
+import { Link, NavLink } from 'react-router';
 import AuthContext from '../CONTEXTS/AuthContext';
-import AuthProvider from '../CONTEXTS/AuthProvider';
 
 const Navbar = () => {
-    const {user}=useContext(AuthContext)
-    const links = <>
-        <Link to={"/"}><p className='text-white hover:text-orange-300 hover:underline font-extrabold cursor-pointer md:mx-4'>Home</p></Link>
-        <Link to={"/explore-gardeners"}><p className='text-white hover:text-orange-300 hover:underline font-extrabold cursor-pointer md:mx-4'>Explore Gardeners</p></Link>
-        <Link to={"/browse-tips"}><p className='text-white hover:text-orange-300 hover:underline font-extrabold cursor-pointer md:mx-4'>Browse Tips</p></Link>
-        <p className='hidden md:mx-4 md:block text-white'>||</p>
-        <Link to={"/share-tip"}><p className='text-white hover:text-orange-300 hover:underline font-extrabold cursor-pointer md:mx-4'>Share a Garden Tip (Private) </p></Link>
-        <Link to={"/my-tips"}> <p className='text-white hover:text-orange-300 hover:underline font-extrabold cursor-pointer md:mx-4'> My Tips (Private) </p></Link>
-    </>
+    const { user, logOut } = useContext(AuthContext)
+    const navClass = ({ isActive }) => 
+        isActive
+            ? "text-orange-400 underline font-extrabold cursor-pointer md:mx-4"
+            : "text-white hover:text-orange-300 hover:underline font-extrabold cursor-pointer md:mx-4";
+    
+    const links = <div className='flex flex-col md:flex-row p-4 md:p-0 bg-green-700 md:bg-none'>
+        <NavLink to="/" className={navClass}>Home</NavLink>
+        <NavLink to="/explore-gardeners" className={navClass}>Explore Gardeners</NavLink>
+        <NavLink to="/browse-tips" className={navClass}>Browse Tips</NavLink>
+        <p className='hidden text-white md:mx-4 md:block'>||</p>
+        <NavLink to="/share-tip" className={navClass}>Share a Garden Tip (Private)</NavLink>
+        <NavLink to="/my-tips" className={navClass}>My Tips (Private)</NavLink>
+    </div>
+
+    const handleLogOut = () => {
+        logOut().then(res => console.log(res)).catch(err => console.log(err))
+    }
     return (
         <div>
             <div className="navbar bg-green-700 lg:px-4 shadow-sm">
@@ -35,7 +43,21 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    <a className="btn border-0 bg-white rounded-full hover:bg-orange-500 hover:text-white hover:drop-shadow-2xl transition duration-400  ">{user?"Logout":"Sign In"}</a>
+                    {user ? (
+                        <button
+                            onClick={handleLogOut}
+                            className="btn border-0 bg-red-600 text-white rounded-full hover:bg-red-700 hover:drop-shadow-2xl transition duration-300"
+                        >
+                            Logout
+                        </button>
+                    ) : (
+                        <Link
+                            to="/logIn"
+                            className="btn border-0 bg-white text-black rounded-full hover:bg-orange-500 hover:text-white hover:drop-shadow-2xl transition duration-300"
+                        >
+                            Sign In
+                        </Link>
+                    )}
                 </div>
             </div>
         </div>

@@ -1,18 +1,35 @@
 import React, { useContext } from 'react';
 import AuthContext from '../CONTEXTS/AuthContext';
+import Loading from '../COMPONENTS/Loading';
 
 
 const LogInPage = () => {
-    const { googleSignIn } = useContext(AuthContext)
+    const { googleSignIn, loading, emailSignIn, user } = useContext(AuthContext)
     const handleGoogleSignIn = () => {
         googleSignIn().then(res => console.log(res)).catch((err) => {
             console.log(err)
         })
     }
+    const handleEmailLogIn = (e) => {
+        e.preventDefault()
+        const form = e.target
+        const email = form.email.value
+        const password = form.password.value
+        emailSignIn(email,password).then((userCredential) => {
+            // Signed in 
+            const user = userCredential.user;
+            // ...
+        })
+            .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+            });
+    }
+    if (loading) return Loading
 
     return (
-        <div>
-            <div className="hero bg-base-200 min-h-screen">
+        !user ? <div>
+            <form onSubmit={handleEmailLogIn} className="hero bg-base-200 min-h-screen">
                 <div className="hero-content flex-col lg:flex-row-reverse">
                     <div className="text-center lg:text-left">
                         <h1 className="text-5xl font-bold">Login now!</h1>
@@ -25,9 +42,9 @@ const LogInPage = () => {
                         <div className="card-body">
                             <fieldset className="fieldset">
                                 <label className="label">Email</label>
-                                <input type="email" className="input" placeholder="Email" />
+                                <input name='email' type="email" className="input" placeholder="Email" />
                                 <label className="label">Password</label>
-                                <input type="password" className="input" placeholder="Password" />
+                                <input name='password' type="password" className="input" placeholder="Password" />
                                 <div><a className="link link-hover">Forgot password?</a></div>
                                 <button className="btn btn-neutral mt-4">Login</button>
                             </fieldset>
@@ -44,9 +61,38 @@ const LogInPage = () => {
                 <div>
 
                 </div>
-            </div>
+            </form>
 
-        </div>
+        </div> : <>
+            <> <div className="hero min-h-screen bg-base-200">
+                <div className="hero-content text-center">
+                    <div className="max-w-md bg-white p-8 rounded-2xl shadow-xl">
+                        <img
+                            src={user.photoURL || "https://i.ibb.co/2M7rtLk/user.png"}
+                            alt="User"
+                            className="w-24 h-24 rounded-full mx-auto mb-4"
+                        />
+
+                        <h1 className="text-3xl font-bold mb-2">
+                            Welcome, {user.displayName || "User"} 👋
+                        </h1>
+
+                        <p className="text-gray-600 mb-2">
+                            You’re logged in as
+                        </p>
+
+                        <p className="font-semibold text-green-600 mb-6">
+                            {user.email}
+                        </p>
+
+                        <p className="text-sm text-gray-500">
+                            You can now explore gardeners, share tips, and grow together 🌱
+                        </p>
+                    </div>
+                </div>
+            </div>
+            </>
+        </>
     );
 };
 

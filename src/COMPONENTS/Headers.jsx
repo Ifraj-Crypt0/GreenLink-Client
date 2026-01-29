@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
+import { Link, Navigate, useNavigate } from 'react-router';
 
 const Headers = () => {
     const [currentIndex, setCurrentIndex] = useState(0);
-
+    const navigate = useNavigate();
     const images = [
         "/src/Images/liam-m-DJFmbOd84Z0-unsplash.jpg",
         "/src/Images/sandie-clarke-q13Zq1Jufks-unsplash.jpg",
@@ -19,6 +20,9 @@ const Headers = () => {
         return () => clearInterval(interval);
     }, []);
 
+    const goToSignUpPage = () => {
+        navigate("/signUp"); 
+    }
 
     return (
         <div>
@@ -44,7 +48,7 @@ const Headers = () => {
                         Connect with local gardeners, share tips, and grow your green space.
                     </p>
                     <div className="flex gap-4 ">
-                        <button className="btn text-white border-orange-50 btn-primary btn-lg bg-green-700 transition-transform hover:scale-105 ">
+                        <button onClick={goToSignUpPage} className="btn text-white border-orange-50 btn-primary btn-lg bg-green-700 transition-transform hover:scale-105 ">
                             Sign Up
                         </button>
                         <button className="btn btn-primary btn-lg text-white border-white hover:bg-white hover:text-black transition-all">

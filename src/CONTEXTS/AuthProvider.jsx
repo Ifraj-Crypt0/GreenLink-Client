@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import AuthContext from './AuthContext';
 
-import { GoogleAuthProvider, onAuthStateChanged, signInWithPopup } from "firebase/auth";
+import { createUserWithEmailAndPassword, GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
 import { auth } from '../../firebase.init';
 const provider = new GoogleAuthProvider();
 
@@ -10,13 +10,27 @@ const provider = new GoogleAuthProvider();
 
 const AuthProvider = ({ children }) => {
 
-    const [user, setUser] = useState();  // track current user
-    const [loading, setLoading] = useState(true); // optional, for UI
-    
+    const [user, setUser] = useState();
+    const [loading, setLoading] = useState(true);
+
     const googleSignIn = () => {
         return signInWithPopup(auth, provider)
     }
 
+    const emailSignUp = (email, password) => {
+        return createUserWithEmailAndPassword(auth, email, password)
+    }
+
+    const emailSignIn = (email,password) => {
+        
+        return signInWithEmailAndPassword(auth,email,password)
+    }
+
+    const logOut = () => {
+        return signOut(auth)
+    }
+
+    // $$$ jsTasks
     // onAuthStateChanged
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
@@ -30,7 +44,11 @@ const AuthProvider = ({ children }) => {
 
     const flag = {
         googleSignIn,
-        user
+        user,
+        loading,
+        emailSignUp,
+        logOut,
+        emailSignIn
     }
     return (
         <AuthContext.Provider value={flag}>

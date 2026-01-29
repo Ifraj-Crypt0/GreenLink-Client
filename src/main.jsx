@@ -13,6 +13,7 @@ import MyTipsPage from './PAGES/MyTipsPage.jsx';
 import ShareAGardenTipPage from './PAGES/ShareAGardenTipPage.jsx';
 import LogInPage from './PAGES/LogInPage.jsx';
 import AuthProvider from './CONTEXTS/AuthProvider.jsx';
+import SignUpPage from './PAGES/SignUpPage.jsx';
 
 const router = createBrowserRouter([
   {
@@ -38,6 +39,9 @@ const router = createBrowserRouter([
       }, {
         path: "logIn",
         Component: LogInPage
+      }, {
+        path: "signUp",
+        Component: SignUpPage
       }
     ]
   },
