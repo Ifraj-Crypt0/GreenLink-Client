@@ -2,12 +2,12 @@ import React from 'react';
 
 const Navbar = () => {
     const links = <>
-        <p className='text-white hover:text-orange-300 hover:underline cursor-pointer md:mx-4'>Home</p>
-        <p className='text-white hover:text-orange-300 hover:underline cursor-pointer md:mx-4'>Explore Gardeners</p>
-        <p className='text-white hover:text-orange-300 hover:underline cursor-pointer md:mx-4'>Browse Tips</p>
+        <p className='text-white hover:text-orange-300 hover:underline font-extrabold cursor-pointer md:mx-4'>Home</p>
+        <p className='text-white hover:text-orange-300 hover:underline font-extrabold cursor-pointer md:mx-4'>Explore Gardeners</p>
+        <p className='text-white hover:text-orange-300 hover:underline font-extrabold cursor-pointer md:mx-4'>Browse Tips</p>
         <p className='hidden md:mx-4 md:block text-white'>||</p>
-        <p className='text-white hover:text-orange-300 hover:underline cursor-pointer md:mx-4'>Share a Garden Tip (Private) </p>
-        <p className='text-white hover:text-orange-300 hover:underline cursor-pointer md:mx-4'> My Tips (Private) </p>
+        <p className='text-white hover:text-orange-300 hover:underline font-extrabold cursor-pointer md:mx-4'>Share a Garden Tip (Private) </p>
+        <p className='text-white hover:text-orange-300 hover:underline font-extrabold cursor-pointer md:mx-4'> My Tips (Private) </p>
     </>
     return (
         <div>

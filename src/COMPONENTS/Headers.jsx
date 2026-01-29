@@ -38,9 +38,9 @@ const Headers = () => {
                 {/* HERO TEXT OVERLAY */}
                 <div className="absolute w-full flex flex-col inset-0 justify-center px-4 bg-black/30">
                     <h1 className="text-4xl md:text-6xl font-bold text-white drop-shadow-lg mb-4">
-                        Welcome to GardenConnect
+                        Welcome to <span className='text-green-400'> GardenConnect</span>
                     </h1>
-                    <p className="text-lg md:text-2xl text-white drop-shadow-md mb-6 max-w-xl">
+                    <p className=" text-gray-100/80 md:text-2xl  drop-shadow-md mb-6 max-w-xl">
                         Connect with local gardeners, share tips, and grow your green space.
                     </p>
                     <div className="flex gap-4 ">
