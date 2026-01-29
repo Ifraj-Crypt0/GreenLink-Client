@@ -1,7 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router';
+import AuthContext from '../CONTEXTS/AuthContext';
+import AuthProvider from '../CONTEXTS/AuthProvider';
 
 const Navbar = () => {
+    const {user}=useContext(AuthContext)
     const links = <>
         <Link to={"/"}><p className='text-white hover:text-orange-300 hover:underline font-extrabold cursor-pointer md:mx-4'>Home</p></Link>
         <Link to={"/explore-gardeners"}><p className='text-white hover:text-orange-300 hover:underline font-extrabold cursor-pointer md:mx-4'>Explore Gardeners</p></Link>
@@ -32,7 +35,7 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    <a className="btn border-0 bg-white rounded-full hover:bg-orange-500 hover:text-white hover:drop-shadow-2xl transition duration-400  ">Button</a>
+                    <a className="btn border-0 bg-white rounded-full hover:bg-orange-500 hover:text-white hover:drop-shadow-2xl transition duration-400  ">{user?"Logout":"Sign In"}</a>
                 </div>
             </div>
         </div>

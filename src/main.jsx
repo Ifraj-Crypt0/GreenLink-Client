@@ -11,6 +11,8 @@ import BrowseTipsPage from './PAGES/BrowseTipsPage.jsx';
 import ExploreGardenersPage from './PAGES/ExploreGardenersPage.jsx';
 import MyTipsPage from './PAGES/MyTipsPage.jsx';
 import ShareAGardenTipPage from './PAGES/ShareAGardenTipPage.jsx';
+import LogInPage from './PAGES/LogInPage.jsx';
+import AuthProvider from './CONTEXTS/AuthProvider.jsx';
 
 const router = createBrowserRouter([
   {
@@ -33,6 +35,9 @@ const router = createBrowserRouter([
       }, {
         path: "share-tip",
         Component: ShareAGardenTipPage
+      }, {
+        path: "logIn",
+        Component: LogInPage
       }
     ]
   },
@@ -40,6 +45,8 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <AuthProvider>
+      <RouterProvider router={router} />
+    </AuthProvider>
   </StrictMode>,
 )
