@@ -4,7 +4,7 @@ import AuthContext from '../CONTEXTS/AuthContext';
 
 const ShareAGardenTipPage = () => {
     const { user } = useContext(AuthContext)
-
+    
     const userData = {
         name: user.displayName || user.email,
         photo: user.photoURL || "https://www.afnic.fr/wp-media/uploads/2023/02/Anonymous.jpg"
@@ -18,6 +18,15 @@ const ShareAGardenTipPage = () => {
             tip: form.tip.value,
             category: form.category.value,
             isPublic: form.isPublic.checked,
+            createdAt: new Date().toLocaleTimeString("en-BD", {
+                timeZone: "Asia/Dhaka",
+                year: "numeric",
+                month: "2-digit",
+                day: "2-digit",
+                hour: "2-digit",
+                minute: "2-digit",
+                second: "2-digit"
+            })
         };
 
         const post = {
@@ -25,13 +34,7 @@ const ShareAGardenTipPage = () => {
             postData
         }
 
-        fetch("http://localhost:3000/posts", {
-            method: "POST",
-            headers: {
-                "content-type": "application/json"
-            },
-            body: JSON.stringify(post)
-        }).then(res => res.json()).then(data => console.log("data after post", data)).catch((err) => console.log(err))
+
 
         Swal.fire({
             title: "Confirm Post?",
@@ -47,6 +50,13 @@ const ShareAGardenTipPage = () => {
                     title: "POSTED!",
                     icon: "success"
                 });
+                fetch("http://localhost:3000/posts", {
+                    method: "POST",
+                    headers: {
+                        "content-type": "application/json"
+                    },
+                    body: JSON.stringify(post)
+                }).then(res => res.json()).then(data => console.log("data after post", data)).catch((err) => console.log(err))
                 console.log("Submitted Garden Tip 🌱", postData);
             } else {
                 form.reset();

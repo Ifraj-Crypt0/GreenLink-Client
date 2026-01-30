@@ -27,9 +27,11 @@ const router = createBrowserRouter([
         Component: HomePage
       }, {
         path: "browse-tips",
+        loader: () => fetch("http://localhost:3000/posts"),
         Component: BrowseTipsPage
       }, {
         path: "explore-gardeners",
+        loader: () => fetch("http://localhost:3000/posts"),
         Component: ExploreGardenersPage
       },
       {
@@ -46,8 +48,8 @@ const router = createBrowserRouter([
         Component: SignUpPage
       },
       {
-        path:"learn-more",
-        Component:LearnMore
+        path: "learn-more",
+        Component: LearnMore
       }
     ]
   },
