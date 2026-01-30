@@ -3,6 +3,8 @@ import { useContext } from "react";
 import Headers from "../COMPONENTS/Headers";
 import AuthContext from "../CONTEXTS/AuthContext";
 import Locked from "../COMPONENTS/locked";
+import ExtraComponents from "../COMPONENTS/ExtraComponents";
+
 
 
 
@@ -15,9 +17,9 @@ const HomePage = () => {
     <>
       <Headers></Headers>
       {
-        !user? <Locked></Locked> : <>
-        here goes more components
-        </>
+        !user ? <Locked></Locked> : <ExtraComponents></ExtraComponents>
+
+
       }
     </>
 

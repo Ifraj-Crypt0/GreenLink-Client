@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Link, NavLink } from 'react-router';
+import { Link, NavLink, replace, useNavigate } from 'react-router';
 import AuthContext from '../CONTEXTS/AuthContext';
 import Swal from 'sweetalert2';
 
@@ -18,7 +18,7 @@ const Navbar = () => {
         <NavLink to="/share-tip" className={navClass}>Share a Garden Tip (Private)</NavLink>
         <NavLink to="/my-tips" className={navClass}>My Tips (Private)</NavLink>
     </div>
-
+    const navigate = useNavigate()
     const handleLogOut = () => {
         Swal.fire({
             title: "Are you sure?",
@@ -37,6 +37,7 @@ const Navbar = () => {
                             text: "You have been successfully logged out.",
                             icon: "success"
                         });
+                        { navigate("/logIn"), { replace: true } }
                     })
                     .catch((err) => {
                         Swal.fire({
@@ -55,7 +56,7 @@ const Navbar = () => {
                 <div className="navbar-start">
                     <div className="dropdown">
                         <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
-                            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"> <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /> </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="white"> <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /> </svg>
                         </div>
                         <ul
                             tabIndex="-1"
