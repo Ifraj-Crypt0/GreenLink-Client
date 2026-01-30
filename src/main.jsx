@@ -16,11 +16,14 @@ import AuthProvider from './CONTEXTS/AuthProvider.jsx';
 import SignUpPage from './PAGES/SignUpPage.jsx';
 import PrivateRouter from './CONTEXTS/PrivateRouter.jsx';
 import LearnMore from './PAGES/LearnMore.jsx';
+import ErrorPage from './PAGES/ErrorPage.jsx';
+
 
 const router = createBrowserRouter([
   {
     path: "/",
     Component: Layout,
+
     children: [
       {
         index: true,
@@ -50,7 +53,11 @@ const router = createBrowserRouter([
       {
         path: "learn-more",
         Component: LearnMore
+      }, {
+        path: "*",
+        Component: ErrorPage
       }
+
     ]
   },
 ]);
