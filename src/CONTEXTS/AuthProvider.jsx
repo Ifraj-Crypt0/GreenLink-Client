@@ -48,7 +48,8 @@ const AuthProvider = ({ children }) => {
         loading,
         emailSignUp,
         logOut,
-        emailSignIn
+        emailSignIn,
+        
     }
     return (
         <AuthContext.Provider value={flag}>
