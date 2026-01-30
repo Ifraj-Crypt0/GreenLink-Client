@@ -17,6 +17,7 @@ import SignUpPage from './PAGES/SignUpPage.jsx';
 import PrivateRouter from './CONTEXTS/PrivateRouter.jsx';
 import LearnMore from './PAGES/LearnMore.jsx';
 import ErrorPage from './PAGES/ErrorPage.jsx';
+import FixAGardenTip from './PAGES/FixAGardenTip.jsx';
 
 
 const router = createBrowserRouter([
@@ -36,6 +37,9 @@ const router = createBrowserRouter([
         path: "explore-gardeners",
         loader: () => fetch("http://localhost:3000/posts"),
         Component: ExploreGardenersPage
+      }, {
+        path: `fixTips/:id`,
+        element: <PrivateRouter><FixAGardenTip></FixAGardenTip></PrivateRouter>
       },
       {
         path: "my-tips",
