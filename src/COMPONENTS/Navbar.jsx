@@ -30,7 +30,7 @@ const Navbar = () => {
             confirmButtonText: "Yes, log me out!"
         }).then((result) => {
             if (result.isConfirmed) {
-                logOut() 
+                logOut()
                     .then(() => {
                         Swal.fire({
                             title: "Logged Out!",

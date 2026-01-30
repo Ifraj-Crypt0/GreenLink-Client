@@ -14,6 +14,8 @@ import ShareAGardenTipPage from './PAGES/ShareAGardenTipPage.jsx';
 import LogInPage from './PAGES/LogInPage.jsx';
 import AuthProvider from './CONTEXTS/AuthProvider.jsx';
 import SignUpPage from './PAGES/SignUpPage.jsx';
+import PrivateRouter from './CONTEXTS/PrivateRouter.jsx';
+import LearnMore from './PAGES/LearnMore.jsx';
 
 const router = createBrowserRouter([
   {
@@ -32,16 +34,20 @@ const router = createBrowserRouter([
       },
       {
         path: "my-tips",
-        Component: MyTipsPage
+        element: <PrivateRouter><MyTipsPage></MyTipsPage></PrivateRouter>
       }, {
         path: "share-tip",
-        Component: ShareAGardenTipPage
+        element: <PrivateRouter><ShareAGardenTipPage></ShareAGardenTipPage></PrivateRouter>
       }, {
         path: "logIn",
         Component: LogInPage
       }, {
         path: "signUp",
         Component: SignUpPage
+      },
+      {
+        path:"learn-more",
+        Component:LearnMore
       }
     ]
   },

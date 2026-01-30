@@ -21,7 +21,7 @@ const Headers = () => {
     }, []);
 
     const goToSignUpPage = () => {
-        navigate("/signUp"); 
+        navigate("/signUp");
     }
 
     return (
@@ -51,9 +51,9 @@ const Headers = () => {
                         <button onClick={goToSignUpPage} className="btn text-white border-orange-50 btn-primary btn-lg bg-green-700 transition-transform hover:scale-105 ">
                             Sign Up
                         </button>
-                        <button className="btn btn-primary btn-lg text-white border-white hover:bg-white hover:text-black transition-all">
+                        <Link to={"/learn-more"} className="btn btn-primary btn-lg text-white border-white hover:bg-white hover:text-black transition-all">
                             Learn More
-                        </button>
+                        </Link>
                     </div>
                 </div>
             </div>
