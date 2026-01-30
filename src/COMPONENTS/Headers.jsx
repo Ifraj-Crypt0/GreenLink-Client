@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Link, Navigate, useNavigate } from 'react-router';
+import AuthContext from '../CONTEXTS/AuthContext';
 
 const Headers = () => {
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -23,7 +24,8 @@ const Headers = () => {
     const goToSignUpPage = () => {
         navigate("/signUp");
     }
-
+    const { user } = useContext(AuthContext)
+    console.log(user)
     return (
         <div>
             {/* HEADERS */}
@@ -44,17 +46,22 @@ const Headers = () => {
                     <h1 className="text-4xl md:text-6xl font-bold text-white drop-shadow-lg mb-4">
                         Welcome to <span className='text-green-400'> GardenConnect</span>
                     </h1>
-                    <p className=" text-gray-100/80 md:text-2xl  drop-shadow-md mb-6 max-w-xl">
+                    {
+                        !user? <p className=" text-gray-100/80 md:text-2xl  drop-shadow-md mb-6 max-w-xl">
                         Connect with local gardeners, share tips, and grow your green space.
-                    </p>
-                    <div className="flex gap-4 ">
-                        <button onClick={goToSignUpPage} className="btn text-white border-orange-50 btn-primary btn-lg bg-green-700 transition-transform hover:scale-105 ">
-                            Sign Up
-                        </button>
-                        <Link to={"/learn-more"} className="btn btn-primary btn-lg text-white border-white hover:bg-white hover:text-black transition-all">
-                            Learn More
-                        </Link>
-                    </div>
+                    </p>: ""
+                    }
+                    {
+                        !user ? <div className="flex gap-4 ">
+                            <button onClick={goToSignUpPage} className="btn text-white border-orange-50 btn-primary btn-lg bg-green-700 transition-transform hover:scale-105 ">
+                                Sign Up
+                            </button>
+                            <Link to={"/learn-more"} className="btn btn-primary btn-lg text-white border-white hover:bg-white hover:text-black transition-all">
+                                Learn More
+                            </Link>
+                        </div> : <span className='text-white font-bold text-3xl'>{user.displayName || user.email}</span>
+                    }
+
                 </div>
             </div>
         </div>
