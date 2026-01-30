@@ -25,7 +25,13 @@ const ShareAGardenTipPage = () => {
             postData
         }
 
-        
+        fetch("http://localhost:3000/posts", {
+            method: "POST",
+            headers: {
+                "content-type": "application/json"
+            },
+            body: JSON.stringify(post)
+        }).then(res => res.json()).then(data => console.log("data after post", data)).catch((err) => console.log(err))
 
         Swal.fire({
             title: "Confirm Post?",
