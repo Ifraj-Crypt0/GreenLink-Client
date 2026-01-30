@@ -28,10 +28,12 @@ const BrowseTipsPage = () => {
                     <p className="text-green-700 mb-3 whitespace-pre-wrap">{post.postData.tip}</p>
 
                     {/* Category & CreatedAt */}
+                  
                     <div className="flex justify-between text-sm text-green-800">
                         <span className="italic">{post.postData.category}</span>
                         <span className='font-bold'>  {post.postData.createdAt && <span>{post.postData.createdAt}</span>}</span>
                     </div>
+                   
                 </div>
             ))}
         </div>
@@ -39,3 +41,6 @@ const BrowseTipsPage = () => {
 };
 
 export default BrowseTipsPage;
+
+
+    

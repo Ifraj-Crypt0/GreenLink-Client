@@ -4,7 +4,7 @@ import AuthContext from '../CONTEXTS/AuthContext';
 
 const ShareAGardenTipPage = () => {
     const { user } = useContext(AuthContext)
-    
+
     const userData = {
         name: user.displayName || user.email,
         photo: user.photoURL || "https://www.afnic.fr/wp-media/uploads/2023/02/Anonymous.jpg"
@@ -26,7 +26,8 @@ const ShareAGardenTipPage = () => {
                 hour: "2-digit",
                 minute: "2-digit",
                 second: "2-digit"
-            })
+            }),
+            email: user.email
         };
 
         const post = {
