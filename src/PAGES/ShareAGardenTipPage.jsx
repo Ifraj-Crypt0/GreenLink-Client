@@ -1,10 +1,11 @@
 import React, { useContext } from 'react';
 import Swal from 'sweetalert2';
 import AuthContext from '../CONTEXTS/AuthContext';
+import {  useNavigate } from 'react-router';
 
 const ShareAGardenTipPage = () => {
     const { user } = useContext(AuthContext)
-
+    const navigate = useNavigate();
     const userData = {
         name: user.displayName || user.email,
         photo: user.photoURL || "https://www.afnic.fr/wp-media/uploads/2023/02/Anonymous.jpg"
@@ -57,7 +58,10 @@ const ShareAGardenTipPage = () => {
                         "content-type": "application/json"
                     },
                     body: JSON.stringify(post)
-                }).then(res => res.json()).then(data => console.log("data after post", data)).catch((err) => console.log(err))
+                }).then(res => res.json()).then(data => {
+                    console.log("data after post", data)
+                    navigate("/browse-tips", { replace: true })
+                }).catch((err) => console.log(err))
                 console.log("Submitted Garden Tip 🌱", postData);
             } else {
                 form.reset();
