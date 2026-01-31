@@ -6,10 +6,10 @@ const Headers = () => {
     const [currentIndex, setCurrentIndex] = useState(0);
     const navigate = useNavigate();
     const images = [
-        "/src/Images/liam-m-DJFmbOd84Z0-unsplash.jpg",
-        "/src/Images/sandie-clarke-q13Zq1Jufks-unsplash.jpg",
-        "/src/Images/robin-wersich-Q0IrpWQIMR4-unsplash.jpg",
-        "/src/Images/roxana-crusemire-TW6sBJnZqOw-unsplash.jpg",
+        "/public/Images/liam-m-DJFmbOd84Z0-unsplash.jpg",
+        "/public/Images/robin-wersich-Q0IrpWQIMR4-unsplash.jpg",
+        "/public/Images/roxana-crusemire-TW6sBJnZqOw-unsplash.jpg",
+        "/public/Images/sandie-clarke-q13Zq1Jufks-unsplash.jpg",
     ];
 
     // $$$ jsTasks
@@ -40,7 +40,7 @@ const Headers = () => {
                         </div>
                     ))}
                 </div>
-
+                   
                 {/* HERO TEXT OVERLAY */}
                 <div className="absolute w-full flex flex-col inset-0 justify-center px-4 bg-black/30">
                     <h1 className="text-4xl md:text-6xl font-bold text-white drop-shadow-lg mb-4">
