@@ -2,15 +2,16 @@ import React, { useContext, useEffect, useState } from 'react';
 import { Link, Navigate, useNavigate } from 'react-router';
 import AuthContext from '../CONTEXTS/AuthContext';
 
+
 const Headers = () => {
     const [currentIndex, setCurrentIndex] = useState(0);
     const navigate = useNavigate();
     const images = [
-        "/public/Images/liam-m-DJFmbOd84Z0-unsplash.jpg",
-        "/public/Images/robin-wersich-Q0IrpWQIMR4-unsplash.jpg",
-        "/public/Images/roxana-crusemire-TW6sBJnZqOw-unsplash.jpg",
-        "/public/Images/sandie-clarke-q13Zq1Jufks-unsplash.jpg",
-    ];
+        "/Images/liam-m-DJFmbOd84Z0-unsplash.jpg",
+        "/Images/robin-wersich-Q0IrpWQIMR4-unsplash.jpg",
+        "/Images/roxana-crusemire-TW6sBJnZqOw-unsplash.jpg",
+        "/Images/sandie-clarke-q13Zq1Jufks-unsplash.jpg",
+    ]
 
     // $$$ jsTasks
     useEffect(() => {
@@ -40,16 +41,16 @@ const Headers = () => {
                         </div>
                     ))}
                 </div>
-                   
+
                 {/* HERO TEXT OVERLAY */}
                 <div className="absolute w-full flex flex-col inset-0 justify-center px-4 bg-black/30">
                     <h1 className="text-4xl md:text-6xl font-bold text-white drop-shadow-lg mb-4">
                         Welcome to <span className='text-green-400'> GardenConnect</span>
                     </h1>
                     {
-                        !user? <p className=" text-gray-100/80 md:text-2xl  drop-shadow-md mb-6 max-w-xl">
-                        Connect with local gardeners, share tips, and grow your green space.
-                    </p>: ""
+                        !user ? <p className=" text-gray-100/80 md:text-2xl  drop-shadow-md mb-6 max-w-xl">
+                            Connect with local gardeners, share tips, and grow your green space.
+                        </p> : ""
                     }
                     {
                         !user ? <div className="flex gap-4 ">
