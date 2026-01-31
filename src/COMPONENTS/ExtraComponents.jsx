@@ -26,14 +26,14 @@ const ExtraComponents = () => {
                 </div>
                 <div id="item3" className="carousel-item w-full">
                     <img
-                        src="https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Z2FyZGVuc3xlbnwwfHwwfHx8MA%3D%3D"
+                        src="https://www.floridastateparks.org/sites/default/files/styles/callout/public/media/image/32081134_Alfred_B__Maclay_Gardens_State_Park_Celeb_Spd4Pmlc4pfw3h828XgQoet18q0ABlZBh.jpg?itok=NORiXqxy"
                         className="w-full h-64 md:h-80 object-cover rounded-2xl"
                         alt="Garden 3"
                     />
                 </div>
                 <div id="item4" className="carousel-item w-full">
                     <img
-                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSf4HALOAX0bY64u_YW5DU4jH53pGDcbDdgGA&s"
+                        src="https://www.visitmelbourne.com/-/media/atdw/melbourne/see-and-do/nature-and-wildlife/parks-and-gardens/581550ed26e339ebae5306830a485b05_1600x1200.jpeg?ts=20250904350609"
                         className="w-full h-64 md:h-80 object-cover rounded-2xl"
                         alt="Garden 4"
                     />
