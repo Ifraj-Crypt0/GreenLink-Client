@@ -1,14 +1,14 @@
-🚀 App Name
+🚀 Green Link
 
-A web app built with modern tools and hosted on fast, scalable platforms.
+LINK : https://greenlink-e0784.web.app/
 
 🛠 Tech Stack
-	•	Frontend: (your framework here — React / Next.js / etc.)
-	•	Backend / Services: Firebase
-	•	Hosting: Vercel (frontend) & Firebase (backend/services)
+	•	Frontend: (your framework here — React)
+	•	Backend / Services: Firebase, Node, Express
+	•	Hosting: Render (Backend) and Firebase (Frontend)
 
 🌐 Hosting
-	•	Vercel – frontend hosting & deployments
+	•	Render – frontend hosting & deployments
 	•	Firebase – auth, database, storage, and backend services
 
 ⚙️ Setup
@@ -24,3 +24,5 @@ Make sure to add your Firebase config keys in a .env file.
 	•	Scalable backend
 	•	Secure authentication
 	•	Cloud-hosted and production-ready
+
+	
