@@ -52,7 +52,7 @@ const ShareAGardenTipPage = () => {
                     title: "POSTED!",
                     icon: "success"
                 });
-                fetch("http://localhost:3000/posts", {
+                fetch("https://greenlink-server-1.onrender.com/posts", {
                     method: "POST",
                     headers: {
                         "content-type": "application/json"

@@ -49,7 +49,7 @@ const Headers = () => {
                     </h1>
                     {
                         !user ? <p className=" text-gray-100/80 md:text-2xl  drop-shadow-md mb-6 max-w-xl">
-                            Connect with local gardeners, share tips, and grow your green space.
+                           Sign Up with your gmail or use fake email and password to unlock the app. Use the navigation panel to access your profile or create posts.
                         </p> : ""
                     }
                     {

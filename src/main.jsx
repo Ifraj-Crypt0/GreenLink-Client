@@ -31,11 +31,11 @@ const router = createBrowserRouter([
         Component: HomePage
       }, {
         path: "browse-tips",
-        loader: () => fetch("http://localhost:3000/posts"),
+        loader: () => fetch("https://greenlink-server-1.onrender.com/posts"),
         Component: BrowseTipsPage
       }, {
         path: "explore-gardeners",
-        loader: () => fetch("http://localhost:3000/posts"),
+        loader: () => fetch("https://greenlink-server-1.onrender.com/posts"),
         Component: ExploreGardenersPage
       }, {
         path: `fixTips/:id`,

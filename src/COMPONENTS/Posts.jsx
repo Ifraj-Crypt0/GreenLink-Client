@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import AuthContext from '../CONTEXTS/AuthContext';
 import Swal from 'sweetalert2';
 import { Navigate, useNavigate } from 'react-router';
@@ -6,8 +6,9 @@ import { Navigate, useNavigate } from 'react-router';
 const Posts = ({ post }) => {
     const { _id, postData, userData } = post;
     const navigate = useNavigate();
+    
+    
     const handleDeletePost = (id) => {
-
         Swal.fire({
             title: "Are you sure?",
             text: "You won't be able to revert this!",
@@ -18,7 +19,7 @@ const Posts = ({ post }) => {
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:3000/posts/${id}`, {
+                fetch(`https://greenlink-server-1.onrender.com/posts/${id}`, {
                     method: "DELETE"
                 }).then(res => res.json()).catch(err => console.log(err))
                 Swal.fire({

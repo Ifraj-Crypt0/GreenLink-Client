@@ -40,7 +40,7 @@ const FixAGardenTip = () => {
       confirmButtonText: 'Yes, update it!',
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:3000/posts/${id}`, {
+        fetch(`https://greenlink-server-1.onrender.com/posts/${id}`, {
           method: 'PATCH',
           headers: {
             'content-type': 'application/json',

@@ -8,14 +8,14 @@ const MyTipsPage = () => {
     const userEmail = user?.email;
 
     useEffect(() => {
-        fetch('http://localhost:3000/posts')
+        fetch('https://greenlink-server-1.onrender.com/posts')
             .then(res => res.json())
             .then(posts => setData(posts));
     }, []);
 
     const myPosts = data?.filter(d => d.postData.email === userEmail);
-    
 
+ 
 
     return (
         <div className="min-h-screen bg-green-50 px-6 py-10">
